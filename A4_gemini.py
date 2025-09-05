@@ -264,6 +264,7 @@ if __name__ == "__main__":
         print(f"  无人机速度: {v_uav:.6f} m/s")
         print(f"  投放时间: {t_drop:.6f} s")
         print(f"  引信延迟: {t_explode:.6f} s")
+        print(f"{theta:.6f}, {v_uav:.6f}, {t_drop:.6f}, {t_explode:.6f}")
 
     print(f"\n最大并集遮蔽时间（PSO 优化）：{best_time:.6f} 秒")
 
