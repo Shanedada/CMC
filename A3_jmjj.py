@@ -262,3 +262,7 @@ if __name__ == "__main__":
     print(f"tau        = {res['tau']}")
     print(f"各弹遮蔽:   {res['indiv_covers']}  (s)")
     print(f"并集遮蔽时长(细dt复核) ≈ {res['union_cover_time_refined']:.3f} s")
+    
+    print(f'第一个弹 : {res['theta']:.8f}, {res['v']:.8f}, {res['t_drop'][0]:.8f}, {res['tau'][0]:.8f}')
+    print(f'第二个弹 : {res['theta']:.8f}, {res['v']:.8f}, {res['t_drop'][1]:.8f}, {res['tau'][1]:.8f}')
+    print(f'第三个弹 : {res['theta']:.8f}, {res['v']:.8f}, {res['t_drop'][2]:.8f}, {res['tau'][2]:.8f}')
