@@ -161,7 +161,7 @@ def make_objective(t_grid):
     return objective
 
 # ============== PSO 优化 ============================
-def pso(max_iter=240, swarm_size=48, seed=2025):
+def pso(max_iter=240, swarm_size=48, seed=1717):
     rng = np.random.default_rng(seed)
 
     t_end = np.linalg.norm(P_fake - P_M0) / np.linalg.norm(v_M)
