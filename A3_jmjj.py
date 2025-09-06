@@ -7,7 +7,7 @@ g = 9.81
 R_cloud = 10.0
 V_down = 3.0
 T_cloud = 20.0
-dt = 0.03  # 调试步长；收敛后自动用 0.02 复核
+dt = 0.015  # 调试步长；收敛后自动用 0.02 复核
 EPS = 1e-9
 
 # 开关：是否打印调试信息（每轮/结果）
@@ -161,7 +161,7 @@ def make_objective(t_grid):
     return objective
 
 # ============== PSO 优化 ============================
-def pso(max_iter=240, swarm_size=48, seed=1717):
+def pso(max_iter=240, swarm_size=48, seed=2025):
     rng = np.random.default_rng(seed)
 
     t_end = np.linalg.norm(P_fake - P_M0) / np.linalg.norm(v_M)
@@ -254,7 +254,7 @@ def pso(max_iter=240, swarm_size=48, seed=1717):
 # 运行
 # =========================
 if __name__ == "__main__":
-    res, raw = pso(max_iter=10000, swarm_size=56, seed=2025)
+    res, raw = pso(max_iter=2500, swarm_size=56, seed=3407)
     print("\n=== 第三题·三弹并集最优（PSO·tuned） ===")
     print(f"航向 theta = {res['theta']:.4f} rad")
     print(f"速度 v     = {res['v']:.3f} m/s")
@@ -263,6 +263,6 @@ if __name__ == "__main__":
     print(f"各弹遮蔽:   {res['indiv_covers']}  (s)")
     print(f"并集遮蔽时长(细dt复核) ≈ {res['union_cover_time_refined']:.3f} s")
     
-    print(f'第一个弹 : {res['theta']:.8f}, {res['v']:.8f}, {res['t_drop'][0]:.8f}, {res['tau'][0]:.8f}')
-    print(f'第二个弹 : {res['theta']:.8f}, {res['v']:.8f}, {res['t_drop'][1]:.8f}, {res['tau'][1]:.8f}')
-    print(f'第三个弹 : {res['theta']:.8f}, {res['v']:.8f}, {res['t_drop'][2]:.8f}, {res['tau'][2]:.8f}')
+    print('第一个弹 : {:.8f}, {:.8f}, {:.8f}, {:.8f}'.format(res['theta'], res['v'], res['t_drop'][0], res['tau'][0]))
+    print('第二个弹 : {:.8f}, {:.8f}, {:.8f}, {:.8f}'.format(res['theta'], res['v'], res['t_drop'][1], res['tau'][1]))
+    print('第三个弹 : {:.8f}, {:.8f}, {:.8f}, {:.8f}'.format(res['theta'], res['v'], res['t_drop'][2], res['tau'][2]))
