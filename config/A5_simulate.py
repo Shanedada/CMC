@@ -69,65 +69,38 @@ def line_dis(x, y, z):
 def dis_func(t):
     return line_dis(true_target, missile_trajectory(t), Bomb_cal_pos(t))
 
-# def find_roots(f, a, b, threshold=10, step=0.01, tol=1e-8):
-#     """
-#     在区间 [a,b] 内寻找 f(t) = threshold 的解
-#     返回所有交点列表
-#     """
-#     roots = []
-#     t = a
-#     prev_val = f(t) - threshold
-#     while t <= b:
-#         t_next = t + step
-#         val = f(t_next) - threshold
-#         # 如果跨过了 0，说明在 [t, t_next] 有解
-#         if prev_val * val <= 0:
-#             lo, hi = t, t_next
-#             # 二分法逼近
-#             while hi - lo > tol:
-#                 mid = (lo + hi) / 2
-#                 if (f(lo) - threshold) * (f(mid) - threshold) <= 0:
-#                     hi = mid
-#                 else:
-#                     lo = mid
-#             roots.append((lo + hi) / 2)
-#         prev_val = val
-#         t = t_next
-#     return roots
-def find_cover_intervals(f, a, b, threshold=10, step=0.01):
+def find_roots(f, a, b, threshold=10, step=0.01, tol=1e-8):
     """
-    在区间 [a,b] 内寻找所有 f(t) < threshold 的时间区间
-    返回 [[t_start, t_end], ...] 格式的区间列表
+    在区间 [a,b] 内寻找 f(t) = threshold 的解
+    返回所有交点列表
     """
-    ts = np.arange(a, b + step, step)
-    vals = np.array([f(t) for t in ts])
-
-    inside = vals < threshold
-    intervals = []
-    in_seg = False
-    seg_start = None
-
-    for i in range(len(ts)):
-        if inside[i] and not in_seg:  # 进入区间
-            seg_start = ts[i]
-            in_seg = True
-        elif not inside[i] and in_seg:  # 离开区间
-            seg_end = ts[i]
-            intervals.append([seg_start, seg_end])
-            in_seg = False
-
-    if in_seg:  # 结尾还在区间
-        intervals.append([seg_start, ts[-1]])
-
-    return intervals
-
+    roots = []
+    t = a
+    prev_val = f(t) - threshold
+    while t <= b:
+        t_next = t + step
+        val = f(t_next) - threshold
+        # 如果跨过了 0，说明在 [t, t_next] 有解
+        if prev_val * val <= 0:
+            lo, hi = t, t_next
+            # 二分法逼近
+            while hi - lo > tol:
+                mid = (lo + hi) / 2
+                if (f(lo) - threshold) * (f(mid) - threshold) <= 0:
+                    hi = mid
+                else:
+                    lo = mid
+            roots.append((lo + hi) / 2)
+        prev_val = val
+        t = t_next
+    return roots
 
 
 # 角度，速度，释放时间长度，延迟引爆时间，无人机初始位置    
                                         
-param1 = [ 3.13536824, 139.99726356, 0.00000000, 3.68536040, np.array([17800.0, 0.0, 1800.0])]
-param3 = [3.13536824, 139.99726356, 3.37299333, 5.27140932, np.array([17800.0, 0.0, 1800.0])]
-param2 = [3.13536824, 139.99726356, 5.45312931, 5.98421643, np.array([17800.0, 0.0, 1800.0])]
+param1 = [0.112785, 140.000000, 0.000000, 0.639469, np.array([17800.0, 0.0, 1800.0])]
+param2 = [4.0165, 140.000000, 4.592267, 7.884428,  np.array([12000.0 ,1400.0 ,1400.0])]
+param3 = [1.774928, 121.359148, 20.502107, 5.638041, np.array([6000, -3000, 700])]
 params = [param1, param2, param3]
 params_num = len(params)
 
@@ -152,19 +125,13 @@ for param in params:
 
     print("干扰弹起爆时位置：", Bomb_pos)
 
-    # roots = find_roots(dis_func, a=t_explode - 1, b=t_explode + 20, threshold=10, step=0.01)
-    roots = find_cover_intervals(dis_func, a=t_explode, b=t_explode + 20, threshold=10, step=0.01)
-    # 将 np.float 转换为 float
-    roots = [[float(root[0]), float(root[1])] for root in roots]
-    
-    print(roots)
-    if len(roots) > 0:
-        roots[0][0] = max(roots[0][0], t_explode)
+    roots = find_roots(dis_func, a=t_explode - 1, b=t_explode + 20, threshold=10, step=0.01)
+    if(len(roots) > 0):
+        roots[0] = max(roots[0], t_explode)
     print("交点:", roots)
-    if len(roots) > 0:
-        print(roots[0][0], roots[0][1])
-        print("有效遮蔽时长 =", roots[0][1] - roots[0][0], "秒")
-        segments.append([roots[0][0], roots[0][1]])
+    if len(roots) == 2:
+        print("有效遮蔽时长 =", roots[1] - roots[0], "秒")
+        segments.append([roots[0], roots[1]])
     else:
         segments.append([0, 0])
 
