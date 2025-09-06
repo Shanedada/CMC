@@ -1,0 +1,75 @@
+{
+    "missiles": [
+      {
+        "id": "M1",
+        "init_pos": [20000, 0, 2000],
+        "v_M": 300.0
+      },
+      {
+        "id": "M2",
+        "init_pos": [19000, 600, 2100]
+      },
+      {
+        "id": "M3",
+        "init_pos": [18000, -600, 1900]
+      }
+    ],
+    "uavs": [
+      {
+        "id": "FY1",
+        "init_pos": [17800, 0, 1800],
+        "v_FY": 140.0,
+        "theta": 0.112785,
+        "bombs": [
+          {"t_release": 0.0, "t_delay": 0.64 },
+          {"t_release": 2.0, "t_delay": 1.2 },
+          {"t_release": 4.0, "t_delay": 1.5 }
+        ]
+      },
+      {
+        "id": "FY2",
+        "init_pos": [12000, 1400, 1400],
+        "v_FY": 140.0,
+        "theta": 4.0165,
+        "bombs": [
+          {"t_release": 1.0, "t_delay": 0.8 },
+          {"t_release": 3.0, "t_delay": 1.0 },
+          {"t_release": 6.0, "t_delay": 2.0 }
+        ]
+      },
+      {
+        "id": "FY3",
+        "init_pos": [6000, -3000, 700],
+        "v_FY": 121.4,
+        "theta": 1.774928,
+        "bombs": [
+          {"t_release": 2.0, "t_delay": 0.6 },
+          {"t_release": 5.0, "t_delay": 1.0 },
+          {"t_release": 8.0, "t_delay": 1.5 }
+        ]
+      },
+      {
+        "id": "FY4",
+        "init_pos": [11000, 2000, 1800],
+        "v_FY": 130.0,
+        "theta": 2.1,
+        "bombs": [
+          {"t_release": 1.5, "t_delay": 0.5 },
+          {"t_release": 3.5, "t_delay": 1.2 },
+          {"t_release": 7.0, "t_delay": 1.0 }
+        ]
+      },
+      {
+        "id": "FY5",
+        "init_pos": [13000, -2000, 1300],
+        "v_FY": 135.0,
+        "theta": 2.8,
+        "bombs": [
+          {"t_release": 2.5, "t_delay": 0.9 },
+          {"t_release": 5.5, "t_delay": 1.1 },
+          {"t_release": 9.0, "t_delay": 2.0 }
+        ]
+      }
+    ]
+  }
+  

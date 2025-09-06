@@ -1,0 +1,563 @@
+{
+  "missiles": [
+    {
+      "id": "M1",
+      "init_pos": [
+        20000,
+        0,
+        2000
+      ],
+      "v_M": 300.0,
+      "time_to_fake": 66.999
+    },
+    {
+      "id": "M2",
+      "init_pos": [
+        19000,
+        600,
+        2100
+      ],
+      "v_M": 300.0,
+      "time_to_fake": 63.75
+    },
+    {
+      "id": "M3",
+      "init_pos": [
+        18000,
+        -600,
+        1900
+      ],
+      "v_M": 300.0,
+      "time_to_fake": 60.366
+    }
+  ],
+  "uavs": [
+    {
+      "id": "FY1",
+      "init_pos": [
+        17800,
+        0,
+        1800
+      ],
+      "v_FY": 140.0,
+      "theta": 0.112785,
+      "bombs": [
+        {
+          "t_release": 0.0,
+          "t_delay": 0.64,
+          "t_explode": 0.64,
+          "explode_pos": [
+            17889.031,
+            10.084,
+            1797.991
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 5.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 5.0,
+          "window": [
+            0.64,
+            20.64
+          ]
+        },
+        {
+          "t_release": 2.0,
+          "t_delay": 1.2,
+          "t_explode": 3.2,
+          "explode_pos": [
+            18245.154,
+            50.421,
+            1792.937
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            3.2,
+            23.2
+          ]
+        },
+        {
+          "t_release": 4.0,
+          "t_delay": 1.5,
+          "t_explode": 5.5,
+          "explode_pos": [
+            18565.108,
+            86.66,
+            1788.964
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            5.5,
+            25.5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FY2",
+      "init_pos": [
+        12000,
+        1400,
+        1400
+      ],
+      "v_FY": 140.0,
+      "theta": 4.0165,
+      "bombs": [
+        {
+          "t_release": 1.0,
+          "t_delay": 0.8,
+          "t_explode": 1.8,
+          "explode_pos": [
+            11838.451,
+            1206.594,
+            1396.861
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            1.8,
+            21.8
+          ]
+        },
+        {
+          "t_release": 3.0,
+          "t_delay": 1.0,
+          "t_explode": 4.0,
+          "explode_pos": [
+            11641.002,
+            970.209,
+            1395.095
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            4.0,
+            24.0
+          ]
+        },
+        {
+          "t_release": 6.0,
+          "t_delay": 2.0,
+          "t_explode": 8.0,
+          "explode_pos": [
+            11282.004,
+            540.418,
+            1380.38
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            8.0,
+            28.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FY3",
+      "init_pos": [
+        6000,
+        -3000,
+        700
+      ],
+      "v_FY": 121.4,
+      "theta": 1.774928,
+      "bombs": [
+        {
+          "t_release": 2.0,
+          "t_delay": 0.6,
+          "t_explode": 2.6,
+          "explode_pos": [
+            5936.014,
+            -2690.914,
+            698.234
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            2.6,
+            22.6
+          ]
+        },
+        {
+          "t_release": 5.0,
+          "t_delay": 1.0,
+          "t_explode": 6.0,
+          "explode_pos": [
+            5852.341,
+            -2286.723,
+            695.095
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            6.0,
+            26.0
+          ]
+        },
+        {
+          "t_release": 8.0,
+          "t_delay": 1.5,
+          "t_explode": 9.5,
+          "explode_pos": [
+            5766.207,
+            -1870.646,
+            688.964
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            9.5,
+            29.5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FY4",
+      "init_pos": [
+        11000,
+        2000,
+        1800
+      ],
+      "v_FY": 130.0,
+      "theta": 2.1,
+      "bombs": [
+        {
+          "t_release": 1.5,
+          "t_delay": 0.5,
+          "t_explode": 2.0,
+          "explode_pos": [
+            10868.74,
+            2224.434,
+            1798.774
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            2.0,
+            22.0
+          ]
+        },
+        {
+          "t_release": 3.5,
+          "t_delay": 1.2,
+          "t_explode": 4.7,
+          "explode_pos": [
+            10691.539,
+            2527.421,
+            1792.937
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            4.7,
+            24.7
+          ]
+        },
+        {
+          "t_release": 7.0,
+          "t_delay": 1.0,
+          "t_explode": 8.0,
+          "explode_pos": [
+            10474.96,
+            2897.738,
+            1795.095
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            8.0,
+            28.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FY5",
+      "init_pos": [
+        13000,
+        -2000,
+        1300
+      ],
+      "v_FY": 135.0,
+      "theta": 2.8,
+      "bombs": [
+        {
+          "t_release": 2.5,
+          "t_delay": 0.9,
+          "t_explode": 3.4,
+          "explode_pos": [
+            12567.52,
+            -1846.24,
+            1296.027
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            3.4,
+            23.4
+          ]
+        },
+        {
+          "t_release": 5.5,
+          "t_delay": 1.1,
+          "t_explode": 6.6,
+          "explode_pos": [
+            12160.48,
+            -1701.526,
+            1294.065
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            6.6,
+            26.6
+          ]
+        },
+        {
+          "t_release": 9.0,
+          "t_delay": 2.0,
+          "t_explode": 11.0,
+          "explode_pos": [
+            11600.8,
+            -1502.543,
+            1280.38
+          ],
+          "covers": [
+            {
+              "missile": "M1",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M2",
+              "covered_seconds": 0.0
+            },
+            {
+              "missile": "M3",
+              "covered_seconds": 0.0
+            }
+          ],
+          "best_target": "M1",
+          "best_covered_seconds": 0.0,
+          "window": [
+            11.0,
+            31.0
+          ]
+        }
+      ]
+    }
+  ],
+  "constants": {
+    "G": 9.81,
+    "V_M": 300.0,
+    "CLOUD_SINK": 3.0,
+    "CLOUD_RADIUS": 10.0,
+    "CLOUD_LIFETIME": 20.0,
+    "T_TRUE": [
+      0.0,
+      200.0,
+      0.0
+    ],
+    "FAKE": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  }
+}
