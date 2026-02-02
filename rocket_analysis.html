@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rocket Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 20px; background: #f9f9f9; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        #main { width: 100%; height: 700px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 图表容器 -->
+        <div id="main"></div>
+    </div>
+    <script>
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        // 注入 Python 计算的数据
+        var payloadAxis = [100, 110, 120, 130, 140, 150];
+        var seriesData = [{"name": "Guiana Space Centre (5.2\u00b0)", "data": [3132.8, 3446.1, 3759.4, 4072.7, 4386.0, 4699.2]}, {"name": "Kennedy Space Center (28.6\u00b0)", "data": [3194.6, 3514.1, 3833.5, 4153.0, 4472.4, 4791.9]}, {"name": "Baikonur Cosmodrome (45.6\u00b0)", "data": [3290.7, 3619.8, 3948.9, 4278.0, 4607.0, 4936.1]}, {"name": "Kodiak Launch Complex (57.4\u00b0)", "data": [3380.4, 3718.4, 4056.5, 4394.5, 4732.6, 5070.6]}];
+
+        option = {
+            // 已移除 Title，利用空间
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { type: 'cross' },
+                textStyle: { fontSize: 14 }
+            },
+            legend: {
+                data: seriesData.map(function(item) { return item.name; }),
+                bottom: 5,
+                itemGap: 25,
+                itemWidth: 35,
+                itemHeight: 18,
+                textStyle: {
+                    fontSize: 14,
+                    color: '#333',
+                    fontWeight: 'bold'
+                }
+            },
+            grid: {
+                left: '6%',     // 增加左侧留白给大字体
+                right: '4%',
+                bottom: '10%',
+                top: '10%',      // 顶部留白减少，因为没有标题
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                name: 'Payload Mass (tons)',
+                nameLocation: 'middle',
+                nameGap: 30,
+                nameTextStyle: {
+                    fontSize: 18,
+                    fontWeight: 'bold',
+                    color: '#000'
+                },
+                data: payloadAxis,
+                axisLabel: {
+                    fontSize: 14,
+                    color: '#333',
+                    interval: 0 // 【关键】强制显示所有 10t 间隔的刻度
+                },
+                axisTick: {
+                    alignWithLabel: true
+                }
+            },
+            yAxis: {
+                type: 'value',
+                name: 'Total Propellant (tons)',
+                nameTextStyle: {
+                    fontSize: 18,
+                    fontWeight: 'bold',
+                    align: 'left',
+                    padding: [0, 0, 10, -70]
+                },
+                min: function(value) { return Math.floor(value.min / 100) * 100 - 200; }, // 自动调整最小值
+                axisLabel: {
+                    formatter: '{value} t',
+                    fontSize: 14,
+                    color: '#333'
+                },
+                splitLine: {
+                    show: false // 【关键】不显示横向网格
+                },
+                axisLine: {
+                    show: true, // 【关键】显示 Y 轴竖线
+                    lineStyle: {
+                        width: 2,
+                        color: '#333'
+                    }
+                }
+            },
+            series: seriesData.map(function(item) {
+                return {
+                    name: item.name,
+                    type: 'line',
+                    data: item.data,
+                    smooth: true,
+                    symbol: 'circle',
+                    symbolSize: 10,     // 大圆点
+                    lineStyle: { width: 4 }, // 粗线条
+                    emphasis: { focus: 'series' }
+                };
+            })
+        };
+
+        option && myChart.setOption(option);
+        window.addEventListener('resize', function() { myChart.resize(); });
+    </script>
+</body>
+</html>
+    
